@@ -8,10 +8,11 @@ const MainLayout = () => {
     const location = useLocation();
 
 
+
     return (
         <div>
             <div
-            className= {`${location.pathname === "/" ? "banner-bg" : ""}`}
+                className={`${location.pathname === "/" ? "banner-bg" : ""}`}
             >
                 <div className="max-w-7xl mx-auto lg:px-0 px-5 z-20">
                     <NavBar></NavBar>
@@ -20,12 +21,13 @@ const MainLayout = () => {
                     }
                 </div>
             </div>
-           
+
             <div>
                 <Outlet></Outlet>
             </div>
         </div>
-    );
-};
+    )
+}
+
 
 export default MainLayout;

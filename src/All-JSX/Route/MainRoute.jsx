@@ -5,6 +5,7 @@ import {
 
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Componentes/Home/Home";
+import DonationItem from "../Componentes/DonationItem/DonationItem";
 
 const MainRoute = createBrowserRouter([
     {
@@ -23,6 +24,11 @@ const MainRoute = createBrowserRouter([
             {
                 path: "/statistics",
                 element: <h1>Hello world from statistics</h1>
+            },
+            {
+                path: "/donation-item/:id",
+                loader: () => fetch("/donation.json"),
+                element: <DonationItem></DonationItem>
             }
         ],
     }
