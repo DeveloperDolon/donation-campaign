@@ -4,7 +4,9 @@ const getLocalDonateID = () => {
     const storedDonateID = localStorage.getItem("donate-item");
 
     if(storedDonateID) {
-        return JSON.parse(storedDonateID);
+        let dataId = JSON.parse(storedDonateID);
+        dataId = dataId.map(item => parseInt(item));
+        return dataId;
     }
     return [];
 }
@@ -21,7 +23,7 @@ const setLocalDonateID = (id) => {
             });
 
     if(setLocalDonateID) {
-        const isExist = storedDonateID.find(item => item === id);
+        const isExist = storedDonateID.find(item => item === parseInt(id));
 
         if(!isExist) {
             storedDonateID.push(id);
@@ -31,7 +33,7 @@ const setLocalDonateID = (id) => {
 
             return;
         }
-
+        
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
