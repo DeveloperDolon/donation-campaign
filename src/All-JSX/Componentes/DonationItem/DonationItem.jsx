@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { setLocalDonateID } from "../../LocalStorage/localStorage";
 
 
 const DonationItem = () => {
@@ -16,13 +17,17 @@ const DonationItem = () => {
 
     }, [id, allData]);
 
+    const handleAddToDonate = () => {
+        setLocalDonateID(id);
+    }
+
 
     return (
         <div className="max-w-7xl mx-auto px-8">
             <div className="lg:w-[100%] md:w-[80%] w-full mx-auto mt-14 relative overflow-hidden
             ">
                <img className="w-full rounded-2xl" src={donationItem.image} alt="" />
-               <div style={{background: "rgba(11, 11, 11, 0.50)"}} className="absolute w-full bottom-0 p-10 rounded-b-2xl">
+               <div style={{background: "rgba(11, 11, 11, 0.50)"}} className="absolute w-full bottom-0 md:p-10 p-5 rounded-b-2xl">
                 <button style={
                     {
                         background: donationItem.colors?.text_color,
@@ -30,7 +35,9 @@ const DonationItem = () => {
                         padding: "15px 30px",
                         borderRadius: "10px"
                     }
-                }>Donate ${donationItem.price}</button>
+                }
+                onClick={handleAddToDonate}
+                >Donate ${donationItem.price}</button>
                </div>
             </div>
 
