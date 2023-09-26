@@ -14,7 +14,6 @@ const useInputState = (defaultVal = null) => {
         }
     }
 
-
     return [
         value, 
         handleChange
@@ -25,7 +24,7 @@ const useInputState = (defaultVal = null) => {
 const Banner = () => {
 
     const {setSearchingCategory} = useContext(SearchCategoryContext);
-    const [searchVal, handleSearchVal] = useInputState("");
+    const [searchVal, handleSearchVal] = useInputState("All");
 
     const handleSearch = () => {
         setSearchingCategory(searchVal);

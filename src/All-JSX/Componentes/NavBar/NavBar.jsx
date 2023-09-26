@@ -1,12 +1,9 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 
 
-const NavBar = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-
-
+const NavBar = ({showDropdown ,setShowDropdown}) => {
 
   return (
     <nav className="block h-max w-full max-w-full rounded-none relative bg-opacity-80 py-2 px-4 text-white lg:px-8 lg:py-4">
@@ -119,7 +116,8 @@ const NavBar = () => {
           <button
             className="middle none relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] rounded-lg text-center font-sans text-xs font-medium uppercase text-blue-gray-500 transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden"
 
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               setShowDropdown(!showDropdown);
             }}
           >
@@ -184,3 +182,8 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+NavBar.propTypes = {
+  showDropdown: PropTypes.bool,
+  setShowDropdown: PropTypes.func
+}

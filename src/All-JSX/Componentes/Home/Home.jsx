@@ -15,7 +15,7 @@ const Home = () => {
             setSearchingItems(donationItems);
             return;
         }
-        const newArr = donationItems.filter(item => item.category === searchingCategory);
+        const newArr = donationItems.filter(item => item.category.toLowerCase() === searchingCategory.toLowerCase());
         setSearchingItems(newArr);
     },[searchingCategory]);
 
@@ -23,7 +23,7 @@ const Home = () => {
         <div className="mt-32 mb-32">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto lg:px-0 px-5">
             {
-                searchingItems.length > 0 ? searchingItems.map(item => <DonationItems key={item.id} item={item}></DonationItems>) : <div className="h-[20vh] flex justify-center items-center col-span-4 text-2xl font-semibold">Sorry invalid search..</div>
+                searchingItems.length > 0 ? searchingItems.map(item => <DonationItems key={item.id} item={item}></DonationItems>) : <div className="h-[20vh] flex justify-center items-center col-span-4 text-2xl font-semibold">Sorry invalid search...</div>
             }
             </div>
         
