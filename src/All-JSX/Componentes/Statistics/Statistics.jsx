@@ -13,7 +13,7 @@ const Statistics = () => {
                 type="pie"
                 width={600}
                 height={500}
-                series={[12, storedId.length]}
+                series={[(12 - storedId.length), storedId.length]}
 
                 options={{
                     labels: ['Total Donation', "Your Donation"],
